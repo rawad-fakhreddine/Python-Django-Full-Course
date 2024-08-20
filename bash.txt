@@ -1,0 +1,39 @@
+IN THE BASH:
+py -m venv .venv
+source .venv/Scripts/activate
+py -m pip install django
+py -m pip install -U pip
+TO CHECK THE INSTALLATION OF THE DJANGO:
+//////////
+py
+import django
+print(django.get_version())
+quit()
+//////////
+django-admin startproject myproject
+cd myproject
+py manage.py runserver 
+// Ctrl+C to stop the server
+//create folder(app) for posts
+py manage.py startapp posts
+//migration for runserver
+py manage.py makemigrations
+py manage.py migrate
+//Interact with ORM
+py manage.py shell
+>>> from posts.models import Post 
+>>> p=Post()
+>>> p
+<Post: Post object (None)>
+>>> p.title="My First Post!"
+>>> p.save()
+>>> p.title
+'My First Post!'
+>>> Post.objects.all()
+<QuerySet [<Post: Post object (1)>]>
+>>> exit()
+//
+py manage.py createsuperuser
+// for images/models
+pip install Pillow
+//shift+refresh chrome can refresh directly the css styles
